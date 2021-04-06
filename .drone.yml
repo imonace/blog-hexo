@@ -11,7 +11,7 @@ steps:
 - name: SCP File Transfer
   image: appleboy/drone-scp
   settings:
-    target: /var/www/blog.mona.moe/public
+    target: /var/www/blog.mona.moe
     source: ./public/*
     host: 
       from_secret: ssh_host
