@@ -1,38 +1,10 @@
 ---
 title: Hello World
+date: 2020-12-25 21:34:51
+updated: 2020-12-25 21:34:51
+tags:
 ---
-Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask me on [GitHub](https://github.com/hexojs/hexo/issues).
 
-## Quick Start
+圣诞节了，给自己买了域名，搭个博客，记录一下最近的工作和生活。
 
-### Create a new post
-
-``` bash
-$ hexo new "My New Post"
-```
-
-More info: [Writing](https://hexo.io/docs/writing.html)
-
-### Run server
-
-``` bash
-$ hexo server
-```
-
-More info: [Server](https://hexo.io/docs/server.html)
-
-### Generate static files
-
-``` bash
-$ hexo generate
-```
-
-More info: [Generating](https://hexo.io/docs/generating.html)
-
-### Deploy to remote sites
-
-``` bash
-$ hexo deploy
-```
-
-More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+临近年末，项目要验收，还是比较忙的，更新就随缘吧。
