@@ -15,8 +15,7 @@ steps:
     source: ./public/*
     host: 
       from_secret: ssh_host
-    port: 
-      from_secret: 22
+    port: 22
     username: 
       from_secret: ssh_username
     key:
