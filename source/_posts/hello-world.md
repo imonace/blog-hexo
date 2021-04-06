@@ -3,6 +3,7 @@ title: Hello World
 date: 2020-12-25 21:34:51
 updated: 2020-12-25 21:34:51
 tags:
+categories: "日常"
 ---
 
 圣诞节了，给自己买了域名，搭个博客，记录一下最近的工作和生活。

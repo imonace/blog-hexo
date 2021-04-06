@@ -3,6 +3,7 @@ title: TopK算法的Verilog实现
 date: 2020-12-26 16:19:34
 updated: 2020-12-26 16:19:34
 tags: [Verilog,Hardware]
+categories: "硬件"
 ---
 
 ### 算法
