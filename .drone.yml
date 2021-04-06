@@ -1,9 +1,13 @@
 kind: pipeline
 name: default
 
+platform:
+  os: linux
+  arch: amd64
+
 steps:
 - name: Hexo Build
-  image: node
+  image: node:lts-alpine
   commands:
   - npm install
   - npm run build
