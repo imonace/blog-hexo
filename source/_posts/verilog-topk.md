@@ -18,7 +18,7 @@ TopK 的软件实现一般使用小顶推排序算法来实现，每次数据进
 
 <!-- more -->
 
-```systemverilog
+```verilog
 module topk #
 (
     parameter integer TOTAL_WIDTH   = 48,       // 数据总位数

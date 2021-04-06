@@ -1,6 +1,7 @@
 ---
 title: openSUSE MicroOS 做云容器 Host 的简单配置与使用经验
 date: 2021-04-06 21:34:51
+cover: /gallery/microos.png
 tags: [Linux]
 categories: "运维"
 ---
@@ -76,7 +77,7 @@ zypper in docker python3-docker-compose # 安装 docker（ 如果没有安装 po
 
 ```shell
 groupadd -r wheel # 默认没有wheel组
-useradd -m -u 1000 -G wheel -s /bin/bash 用户名
+useradd -m -G wheel -s /bin/bash 用户名
 passwd 用户名    # 修改新用户密码
 ```
 
@@ -96,7 +97,7 @@ EDITOR=vim visudo
 
 以 subconverter 容器为例：
 
-```bash
+```shell
 podman pull tindy2013/subconverter
 podman run -d --name=subconverter -p 25500:25500 tindy2013/subconverter
 podman generate systemd -n subconverter | tee /etc/systemd/system/subconverter.service
