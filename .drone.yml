@@ -6,13 +6,13 @@ platform:
   arch: amd64
 
 steps:
-- name: Hexo Build
+- name: hexo build
   image: node:lts-alpine
   commands:
   - npm install
   - npm run build
 
-- name: SCP File Transfer
+- name: scp fild transfer
   image: appleboy/drone-scp
   settings:
     target: /var/www/blog.mona.moe
