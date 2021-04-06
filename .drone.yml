@@ -1,0 +1,28 @@
+kind: pipeline
+name: default
+
+steps:
+- name: Hexo Build
+  image: node
+  commands:
+  - npm install
+  - npm run build
+
+- name: SCP File Transfer
+  image: appleboy/drone-scp
+  settings:
+    target: /var/www/blog.mona.moe/public
+    source: ./public/*
+    host: 
+      from_secret: ssh_host
+    port: 
+      from_secret: 22
+    username: 
+      from_secret: ssh_username
+    key:
+      from_secret: ssh_key
+    rm: true
+  
+trigger:
+  event:
+  - push
