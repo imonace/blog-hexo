@@ -16,7 +16,7 @@ steps:
   image: appleboy/drone-scp
   settings:
     target: /var/www/blog.mona.moe
-    source: ./public/*
+    source: ./public
     host: 
       from_secret: ssh_host
     port: 22
