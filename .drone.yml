@@ -6,17 +6,17 @@ platform:
   arch: amd64
 
 steps:
-- name: hexo build
+- name: build
   image: node:lts-alpine
   commands:
   - npm install
   - npm run build
 
-- name: scp fild transfer
+- name: publish
   image: appleboy/drone-scp
   settings:
     target: /var/www/blog.mona.moe
-    source: ./public/*
+    source: ./public
     host: 
       from_secret: ssh_host
     port: 22
