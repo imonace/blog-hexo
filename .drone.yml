@@ -10,7 +10,7 @@ steps:
   image: node:lts-alpine
   commands:
   - npm install
-  - npm run build
+  - hexo generate
 
 - name: publish
   image: appleboy/drone-scp
