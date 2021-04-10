@@ -41,7 +41,9 @@ MicroOS 详细的架构设计可见 [Portal:MicroOS/Design](https://en.opensuse.
 
 同时安装时建议直接取消安装 SELinux ，见下。
 
-#### *关闭SELinux
+#### *关闭 SELinux
+
+**警告⚠️：关闭 SE Linux 将削弱系统安全性，仅建议在确保只运行可信服务或容器时关闭 SE Linux 。**
 
 也不知道为什么一般都用 AppArmor 的 oS 会在 MicroOS 上默认安装 SELinux。。SELinux 的复杂配置我搞不懂，我在配置系统时深受其害，一般一个正常系统不开 SELinux 也具有足够的安全性。
 
@@ -65,7 +67,7 @@ MicroOS 详细的架构设计可见 [Portal:MicroOS/Design](https://en.opensuse.
 
 安装软件可以用 `transactional-update pkg in` ，也可以进 `transactional-update shell` 中操作，我还是习惯先进 shell。
 
-```shell
+```sh
 zypper in git tmux htop vim # 常用软件按需安装，默认的vim是vim-small，没高亮
 zypper in fail2ban nginx bash-completion
 zypper in docker python3-docker-compose # 安装 docker（ 如果没有安装 podman ）
@@ -75,7 +77,7 @@ zypper in docker python3-docker-compose # 安装 docker（ 如果没有安装 po
 
 ##### 添加普通用户并授予 sudo 权限
 
-```shell
+```sh
 groupadd -r wheel # 默认没有wheel组
 useradd -m -G wheel -s /bin/bash 用户名
 passwd 用户名    # 修改新用户密码
@@ -83,7 +85,7 @@ passwd 用户名    # 修改新用户密码
 
 此时已经可以用新用户登陆了，不过 sudo 会请求 root 的密码，再修改让 sudo 请求用户密码。
 
-```shell
+```sh
 EDITOR=vim visudo
 注释掉 "Defaults targetpw" 和 "ALL   ALL=(ALL) ALL" 两行
 取消注释 "%wheel ALL=(ALL) ALL"
@@ -97,7 +99,7 @@ EDITOR=vim visudo
 
 以 subconverter 容器为例：
 
-```shell
+```sh
 podman pull tindy2013/subconverter
 podman run -d --name=subconverter -p 25500:25500 tindy2013/subconverter
 podman generate systemd -n subconverter | tee /etc/systemd/system/subconverter.service
