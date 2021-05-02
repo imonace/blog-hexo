@@ -1,8 +1,7 @@
 ---
 title: Hello World
 date: 2020-12-25 21:34:51
-updated: 2020-12-25 21:34:51
-tags:
+tags: [Daily]
 categories: "日常"
 ---
 

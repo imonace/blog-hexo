@@ -8,7 +8,7 @@ categories: "运维"
 
 最近想试用 openSUSE 家的 MicroOS 做容器小鸡的系统，主要看上了它无人值守自动更新并且方便回滚的特性。但无奈不管内网还是外网资料都很少，最终是在虚拟机里试错了几次后成功部署到了 VPS 上，也分享一下部署和使用的经验。
 
-#### openSUSE MicroOS
+## openSUSE MicroOS
 
 openSUSE MicroOS 是一个基于 openSUSE Tumbleweed 的衍生发行版，[Wiki](https://en.opensuse.org/Portal:MicroOS) 中对其特点的介绍有：
 
@@ -24,7 +24,7 @@ MicroOS 的一个重要特点是“事务式更新”，事务式更新介绍可
 
 <!-- more -->
 
-#### 架构
+## 架构
 
 MicroOS 详细的架构设计可见 [Portal:MicroOS/Design](https://en.opensuse.org/Portal:MicroOS/Design) ，这里简单介绍一些日常使用时需要注意的点：
 
@@ -33,7 +33,7 @@ MicroOS 详细的架构设计可见 [Portal:MicroOS/Design](https://en.opensuse.
 - 用户目录、一些常规数据目录是可读写挂载，包括 /usr/local, /root, /home, /var, /opt ，这些目录都可以正常使用，且快照不包含这些目录。
 - 配置文件目录 /etc 通过 overlayfs 挂载，实际文件保存在 /var/lib/overlay 中，也是可读写挂载。/etc 与普通目录的区别在于，普通目录在后一个快照运行时的修改，在返回前一个快照时也可见，而通过 overlayfs 挂载的 /etc 可以通过快照返回上一个正常的节点。简单来说，就是为了让配置文件可以直接修改而不用重启的同时，防止配置文件修改把系统“滚挂”。
 
-#### 初始化安装
+## 初始化安装
 
 首先将 MicroOS 的安装 ISO 挂载到云服务商的虚拟主机上，MicroOS 提供了 4 种默认安装配置，分别是预装和不预装容器环境的服务器配置，和使用 Gnome 或 KDE 的桌面配置。这篇主要介绍 MicroOS 在云服务器上的使用，不安装桌面环境。
 
@@ -41,7 +41,7 @@ MicroOS 详细的架构设计可见 [Portal:MicroOS/Design](https://en.opensuse.
 
 同时安装时建议直接取消安装 SELinux ，见下。
 
-#### *关闭 SELinux
+### *关闭 SELinux
 
 **警告⚠️：关闭 SE Linux 将削弱系统安全性，仅建议在确保只运行可信服务或容器时关闭 SE Linux 。**
 
@@ -49,21 +49,21 @@ MicroOS 详细的架构设计可见 [Portal:MicroOS/Design](https://en.opensuse.
 
 下面是取消安装或禁用 SELinux 的方法：
 
-##### 安装时取消安装
+#### 安装时取消安装
 
 1. 在安装程序最后的 Install Summary 中，将 Security 子项里的 SELinux Default Mode 设为 Disabled
 2. 在 Software 子项里取消勾选 SELinux Support
 
-##### 已经安装后禁用
+#### 已经安装后禁用
 
 1. 编辑 /etc/default/grub ，将 GRUB_CMDLINE_LINUX_DEFAULT 行尾的 selinux=1 改写为 0
 2. 执行 `transactional-update grub.cfg` ，重启
 
-#### 常用基础配置
+## 常用基础配置
 
 接下来是一些 oS 做服务器的简单基础配置，有经验的朋友就可以跳过了。
 
-##### 常用软件
+### 常用软件
 
 安装软件可以用 `transactional-update pkg in` ，也可以进 `transactional-update shell` 中操作，我还是习惯先进 shell。
 
@@ -75,7 +75,7 @@ zypper in docker python3-docker-compose # 安装 docker（ 如果没有安装 po
 
 安装完成后 `exit` 退出，`systemctl reboot` 重启即可应用修改。
 
-##### 添加普通用户并授予 sudo 权限
+### 添加普通用户并授予 sudo 权限
 
 ```sh
 groupadd -r wheel # 默认没有wheel组
@@ -91,7 +91,7 @@ EDITOR=vim visudo
 取消注释 "%wheel ALL=(ALL) ALL"
 ```
 
-##### 容器环境
+### 容器环境
 
 如果安装的是 `docker` ，直接用 `systemctl enable --now docker.service` 即可。
 

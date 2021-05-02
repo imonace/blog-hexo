@@ -7,4 +7,4 @@ type: "about"
 
 设备：Macbook Pro 16 、 京造 K2 红轴
 
-系统：macOS Big Sur 11.2.3 、 openSUSE MicroOS
+系统：macOS Big Sur 11.2.3 、 openSUSE Tumbleweed
