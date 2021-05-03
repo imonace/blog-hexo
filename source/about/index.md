@@ -3,8 +3,14 @@ title: 关于我
 type: "about"
 ---
 
-硬件民工， FPGA 入门，神经网络入门调参侠。
+Location: Asia/Chengdu
 
-设备：Macbook Pro 16 、 京造 K2 红轴
+Language：Verilog 、 Python 、 Rust
 
-系统：macOS Big Sur 11.2.3 、 openSUSE Tumbleweed
+Editor: Visual Studio Code
+
+Devices：Macbook Pro 16 、 京造 K2 红
+
+System：macOS Big Sur 、 openSUSE Tumbleweed
+
+主营数字前端设计， ASIC/FPGA 入门，神经网络入门调参侠。
