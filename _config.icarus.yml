@@ -94,21 +94,22 @@ head:
         # E.g., name=theme-color;content=#123456 => <meta name="theme-color" content="#123456">
         - ''
     # URL or path to the website's RSS atom.xml
-    rss: 
+    rss: /atom.xml
 # Page top navigation bar configurations
 navbar:
     # Navigation menu items
     menu:
-        Home: /
-        Archives: /archives
-        Categories: /categories
-        Tags: /tags
-        About: /about
+        主页: /
+        归档: /archives
+        友链: /friends
+        分类: /categories
+        标签: /tags
+        关于: /about
     # Links to be shown on the right of the navigation bar
-    # links:
-    #     Download on GitHub:
-    #         icon: fab fa-github
-    #         url: 'https://github.com/ppoffice/hexo-theme-icarus'
+    links:
+        RSS:
+            icon: fas fa-rss
+            url: /atom.xml
 # Page footer configurations
 footer:
     # Links to be shown on the right of the footer section
@@ -246,7 +247,7 @@ widgets:
             #     url: 'https://dribbble.com'
             RSS:
                 icon: fas fa-rss
-                url: /
+                url: /atom.xml
     # Table of contents widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -259,13 +260,12 @@ widgets:
         # Maximum level of headings to show (1-6)
         depth: 3
     # Recommendation links widget configurations
-    -
+    # -
         # Where should the widget be placed, left sidebar or right sidebar
-        position: left
-        type: links
+        # position: left
+        # type: links
         # Names and URLs of the sites
-        links:
-            TkzcM: 'https://acg.uy'
+        # links:
             # Bulma: 'https://bulma.io'
     # Categories widget configurations
     -
